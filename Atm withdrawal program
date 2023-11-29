@@ -1,0 +1,41 @@
+package sstring;
+import java.util.Scanner;
+
+public class AtmMoney {
+
+	public static void main(String[] args) 
+	{
+		System.out.println("enter the cash");
+		Scanner sc=new Scanner(System.in);
+		int a=sc.nextInt();
+		sc.close();
+		money(a);
+	}
+	
+	static void money(int rupee)
+	{
+		int [] mon= {1000,500,200,100,50,20,10,5,2,1};
+		int rem=rupee;
+		int i=0;
+		int total=0;
+		while(rem>0)
+		{
+			int note=0;
+			if(rem>=mon[i])
+			{
+				rem=rupee%mon[i];
+				note=rupee/mon[i];
+				total=total+note;
+				System.out.println(mon[i]+" notes---->"+note);
+				rupee=rem;
+				i++;		
+			}
+			else
+			{
+				i=i+1;
+			}
+		}
+		System.out.println("The total Notes :"+total);
+	}
+
+}
